@@ -5,7 +5,13 @@
 
     <com.trs.azlist2.ContactIndexView
         android:layout_alignParentRight="true"
+        android:id="@+id/contact_index_view"
         android:layout_width="30dp"
         android:layout_height="match_parent" />
+
+    <com.trs.azlist2.MyListView
+        android:layout_toLeftOf="@id/contact_index_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></com.trs.azlist2.MyListView>
 
 </RelativeLayout>
