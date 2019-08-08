@@ -35,6 +35,10 @@ public class AZListView extends FrameLayout {
         });
     }
 
+    public ContactIndexView getContactIndexView() {
+        return contactIndexView;
+    }
+
     public void setAdapter(AZListAdapter adapter) {
         this.adapter = adapter;
         listView.setAdapter(adapter);
