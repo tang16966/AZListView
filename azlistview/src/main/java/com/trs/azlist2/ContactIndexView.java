@@ -89,23 +89,42 @@ public class ContactIndexView extends View {
         int y = (int) event.getY();
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
-                setPosition(y/(height/26)+1);
-                break;
             case MotionEvent.ACTION_MOVE:
                 setPosition(y/(height/26)+1);
+                onScollSelect.select(letters[y/(height/26)]);
                 break;
         }
         return true;
     }
 
     public void setPosition(int position){
-        if (position > 25)
+        if (position > 26)
             selectPosition = 25;
         else if (position < 0)
             selectPosition = 0;
         else
             selectPosition = position;
         invalidate();
+    }
+
+    //按首字母排序
+    public void setSelect(String ping){
+        for (int i = 0; i < letters.length; i++) {
+            if (ping.equals(letters[i])){
+                selectPosition = i+1;
+                invalidate();
+            }
+        }
+    }
+
+    private OnScollSelect onScollSelect;
+
+    public void setOnScollSelect(OnScollSelect onScollSelect) {
+        this.onScollSelect = onScollSelect;
+    }
+
+    public interface OnScollSelect{
+        void select(String letter);
     }
 
     public int getBgColor() {
