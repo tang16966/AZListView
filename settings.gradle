@@ -1,1 +1,1 @@
-include ':app', ':azlistview'
+include ':app', ':azlistview', ':imagecarousel'

@@ -6,11 +6,10 @@ android {
 
 
     defaultConfig {
-        minSdkVersion 15
+        minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
-        versionName "1.0"
-
+        versionName "1.0.1"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
     }
@@ -22,7 +21,10 @@ android {
         }
     }
 
+
+
 }
+
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -31,18 +33,6 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-    implementation 'com.github.promeg:tinypinyin:2.0.3'
-}
-
-apply plugin: 'maven'
-uploadArchives {
-    repositories.mavenDeployer {
-        def mavenDirPath = file('D:\\jar') // 本地存放目录(自行选择)，可放在gradle.properties文件中引用
-        repository(url:"file://${mavenDirPath.absolutePath}") // 必须双引号，单引号不会转义$
-        pom.project {
-            groupId "com.trs.azlistview" // 可以随意取，一般取包名
-            artifactId "azlistview" // 可以随意取，一般取库的名字
-            version "1.0.0" // 版本号
-        }
-    }
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
 }
